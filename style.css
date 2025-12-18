@@ -1,0 +1,304 @@
+/* =========================
+   VARIABLES
+   ========================= */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --accent-color: #2563eb;
+  --card-bg: #f2f2f2;
+
+  /* Tight fluid typography */
+  --fs-xs: clamp(0.75rem, 0.9vw, 0.85rem);
+  --fs-sm: clamp(0.85rem, 1vw, 0.95rem);
+  --fs-base: clamp(0.95rem, 1.1vw, 1.05rem);
+  --fs-md: clamp(1.1rem, 1.8vw, 1.3rem);
+  --fs-lg: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+/* =========================
+   RESET
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  padding-top: 3.2rem; /* space for fixed navbar */
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+.skip-link {
+  position: absolute;
+  top: -2.5rem;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: var(--fs-xs);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* =========================
+   CONTAINER
+   ========================= */
+.container {
+  width: min(92%, 68rem);
+  margin-inline: auto;
+}
+
+/* =========================
+   HEADER & NAV (GRID ONLY)
+   ========================= */
+.site-header {
+  position: fixed; /* Fixed at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #ddd;
+  padding: 0.6rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-grid {
+  display: grid;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0 15px 0 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  gap: 0.8rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: var(--fs-md);
+  cursor: pointer;
+  color: var(--text-color);
+  box-shadow: 0 4px 8px 0 rgba(249, 244, 244, 0.2),
+    0 6px 20px 0 rgba(201, 241, 42, 0.19);
+}
+
+/* =========================
+   THEME TOGGLE (TOP-RIGHT)
+   ========================= */
+#theme-toggle {
+  position: fixed;
+  top: 0.6rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-md);
+  z-index: 1100; /* above navbar */
+  color: var(--text-color);
+  box-shadow: 0 4px 8px 0 rgba(14, 31, 222, 0.2),
+    0 6px 20px 0 rgba(216, 243, 109, 0.19);
+}
+/* aklil ccsss */
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 2.2rem 0;
+}
+
+.hero h1 {
+  font-size: var(--fs-lg);
+  margin: 0 0 0.4rem 0;
+}
+
+.hero p {
+  font-size: var(--fs-sm);
+  max-width: 42ch;
+  margin: 0;
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+section {
+  padding: 1.8rem 0;
+}
+
+section h2 {
+  font-size: var(--fs-md);
+  margin: 0 0 0.8rem 0;
+}
+
+/* =========================
+   GRID LAYOUTS
+   ========================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+/* aklil added */
+.grid-2 .title {
+  font-size: 1.2rem;
+  background-color: #595c63;
+  text-align: center;
+  padding: 10% 15%;
+  border-radius: 12.5%;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12.5%;
+  box-shadow: 0 4px 8px 0 rgba(249, 244, 244, 0.2),
+    0 6px 20px 0 rgba(201, 241, 42, 0.19);
+}
+/* =========================
+   SKILLS
+   ========================= */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.5rem;
+}
+
+.skills-list li {
+  background-color: var(--card-bg);
+  padding: 0.35rem 0.6rem;
+  border-radius: 5px;
+  font-size: var(--fs-xs);
+}
+.skills-list li:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+/* =========================
+   PROJECTS
+   ========================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.8rem;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  padding: 0.8rem;
+  border-radius: 6px;
+}
+article :hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.project-card h3 {
+  font-size: var(--fs-sm);
+  margin: 0 0 0.3rem 0;
+}
+
+.project-card p {
+  font-size: var(--fs-xs);
+  margin: 0;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.site-footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 0.8rem 0;
+  font-size: var(--fs-xs);
+}
+
+/* =========================
+   DARK THEME
+   ========================= */
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #e5e7eb;
+  --card-bg: #1e293b;
+  --accent-color: #38bdf8;
+}
+
+/* =========================
+   MOBILE MENU
+   ========================= */
+@media (max-width: 768px) {
+  /* akli css */
+  * {
+    font-size: 0.9rem;
+  }
+  .header-grid {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.6rem;
+
+    position: absolute;
+    top: 3.2rem;
+    right: 4%;
+    background-color: var(--bg-color);
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    border-radius: 6px;
+
+    /* hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .nav-list.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Make theme toggle slightly smaller on mobile */
+  #theme-toggle {
+    font-size: var(--fs-sm);
+  }
+}
